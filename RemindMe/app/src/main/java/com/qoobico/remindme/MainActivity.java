@@ -1,10 +1,14 @@
 package com.qoobico.remindme;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.qoobico.remindme.adapter.TabsPagerFragmentAdapter;
 
 /**
  * Created by oleksandr.pachkovsky on 22.12.2015.
@@ -15,6 +19,7 @@ public class MainActivity extends AppCompatActivity{
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity{
 
         initToolbar();
         initNavigationView();
+        initTabs();
     }
 
     public void initToolbar(){
@@ -41,6 +47,15 @@ public class MainActivity extends AppCompatActivity{
 
     private void initNavigationView() {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+    }
+
+    private void initTabs() {
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        TabsPagerFragmentAdapter adapter = new TabsPagerFragmentAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
 
