@@ -1,6 +1,5 @@
 package com.qoobico.remindme;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -17,6 +16,7 @@ import com.qoobico.remindme.fragment.Constants;
 /**
  * Created by oleksandr.pachkovsky on 22.12.2015.
  */
+
 public class MainActivity extends AppCompatActivity{
 
     private static final int MAIN_LAYOUT = R.layout.activity_main;
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity{
                 return false;
             }
         });
-
         toolbar.inflateMenu(R.menu.menu);
     }
 
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity{
         TabsPagerFragmentAdapter adapter = new TabsPagerFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
     }
 
