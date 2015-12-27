@@ -12,4 +12,9 @@
     <string name="tab_item_todo">TODO</string>
     <string name="tab_item_birthdays">Birthdays</string>
 
+
+    <string name="transition_name_name">transition:NAME</string>
+    <string name="transition_name_circle">transition:CIRCLE</string>
+    <string name="transition_name_phone">transition:PHONE</string>
+
 </resources>
