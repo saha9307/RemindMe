@@ -1,125 +1,325 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/mainBackground"
+    android:fitsSystemWindows="true"
     tools:context="com.tutsplus.code.sharedelementtransition.DetailsActivity">
 
-    <ImageView
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/material_wallpaper"/>
+        android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:padding="@dimen/fab_margin">
-
-        <View
-            android:id="@+id/DETAILS_circle"
-            android:transitionName="@string/transition_name_circle"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/circle"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
-
-        <TextView
-            android:id="@+id/DETAILS_name"
-            android:transitionName="@string/transition_name_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jonh Doe"
-            android:layout_toRightOf="@+id/DETAILS_circle"
-            android:layout_marginLeft="@dimen/fab_margin"
-            android:layout_centerVertical="true"
-            android:textColor="#000"
-            android:textSize="25sp"/>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/fab_margin"
-        android:orientation="vertical">
-
-        <RelativeLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/DETAILS_phone_label"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:background="?attr/colorPrimary"/>
+
+            <!-- <android.support.design.widget.TabLayout
+                 android:id="@+id/tabLayout"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 app:tabIndicatorColor="@android:color/white"
+                 app:tabIndicatorHeight="6dp"
+                 app:tabSelectedTextColor="@android:color/white"
+                 app:tabTextColor="@android:color/white"/> -->
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/viewPager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:layout_behavior = "@string/appbar_scrolling_view_behavior"/>-->
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.tutsplus.code.sharedelementtransition.DetailsActivity">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/material_wallpaper"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="82dp"
+                android:padding="@dimen/fab_margin">
+
+                <View
+                    android:id="@+id/DETAILS_circle"
+                    android:transitionName="@string/transition_name_circle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circle"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/DETAILS_name"
+                    android:transitionName="@string/transition_name_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jonh Doe"
+                    android:layout_toRightOf="@+id/DETAILS_circle"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:layout_centerVertical="true"
+                    android:textColor="#000"
+                    android:textSize="20sp"/>
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone:"
-                android:textColor="#000"
-                android:textSize="20sp"/>
+                android:layout_centerVertical="true"
+                android:padding="@dimen/fab_margin"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/DETAILS_phone"
-                android:transitionName="@string/transition_name_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/DETAILS_phone_label"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:text="+01 123456789"
-                android:textColor="#9f9f9f"
-                android:textSize="20sp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        </RelativeLayout>
+                    <TextView
+                        android:id="@+id/DETAILS_phone_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone:"
+                        android:textColor="#000"
+                        android:textSize="17sp"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/DETAILS_phone"
+                        android:transitionName="@string/transition_name_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/DETAILS_phone_label"
+                        android:layout_marginLeft="@dimen/fab_margin"
+                        android:text="+01 123456789"
+                        android:textColor="#9f9f9f"
+                        android:textSize="17sp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fab_margin">
+
+                    <TextView
+                        android:id="@+id/DETAILS_email_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email:"
+                        android:textColor="#000"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:id="@+id/DETAILS_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/DETAILS_email_label"
+                        android:layout_marginLeft="@dimen/fab_margin"
+                        android:text="jonh.doe@envato.com"
+                        android:textColor="#9f9f9f"
+                        android:textSize="17sp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fab_margin">
+
+                    <TextView
+                        android:id="@+id/DETAILS_city_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="City:"
+                        android:textColor="#000"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/DETAILS_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/DETAILS_city_label"
+                        android:layout_marginLeft="@dimen/fab_margin"
+                        android:text="Rome"
+                        android:textColor="#9f9f9f"
+                        android:textSize="18sp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin">
+            android:layout_width="wrap_content"
+            android:src="@mipmap/ic_menu"
+            android:layout_gravity = "end|bottom"
+            android:layout_marginBottom = "@dimen/fab_margin"
+            android:layout_marginRight = "@dimen/fab_margin"/>
 
-            <TextView
-                android:id="@+id/DETAILS_email_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email:"
-                android:textColor="#000"
-                android:textSize="20sp"/>
+    </android.support.design.widget.CoordinatorLayout>
 
-            <TextView
-                android:id="@+id/DETAILS_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/DETAILS_email_label"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:text="jonh.doe@envato.com"
-                android:textColor="#9f9f9f"
-                android:textSize="20sp"/>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_navigation"
+        app:headerLayout="@layout/navigation_header"/>
 
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin">
+</android.support.v4.widget.DrawerLayout>
 
-            <TextView
-                android:id="@+id/DETAILS_city_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="City:"
-                android:textColor="#000"
-                android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/DETAILS_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/DETAILS_city_label"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:text="Rome"
-                android:textColor="#9f9f9f"
-                android:textSize="20sp"/>
 
-        </RelativeLayout>
 
-    </LinearLayout>
 
-</LinearLayout>
+
+
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--tools:context="com.tutsplus.code.sharedelementtransition.DetailsActivity">-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@mipmap/material_wallpaper"/>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="82dp"-->
+        <!--android:padding="@dimen/fab_margin">-->
+
+        <!--<View-->
+            <!--android:id="@+id/DETAILS_circle"-->
+            <!--android:transitionName="@string/transition_name_circle"-->
+            <!--android:layout_width="48dp"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:background="@drawable/circle"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentLeft="true"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/DETAILS_name"-->
+            <!--android:transitionName="@string/transition_name_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Jonh Doe"-->
+            <!--android:layout_toRightOf="@+id/DETAILS_circle"-->
+            <!--android:layout_marginLeft="@dimen/fab_margin"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="25sp"/>-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:padding="@dimen/fab_margin"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/DETAILS_phone_label"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Phone:"-->
+                <!--android:textColor="#000"-->
+                <!--android:textSize="20sp"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/DETAILS_phone"-->
+                <!--android:transitionName="@string/transition_name_phone"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/DETAILS_phone_label"-->
+                <!--android:layout_marginLeft="@dimen/fab_margin"-->
+                <!--android:text="+01 123456789"-->
+                <!--android:textColor="#9f9f9f"-->
+                <!--android:textSize="20sp"/>-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/fab_margin">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/DETAILS_email_label"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Email:"-->
+                <!--android:textColor="#000"-->
+                <!--android:textSize="20sp"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/DETAILS_email"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/DETAILS_email_label"-->
+                <!--android:layout_marginLeft="@dimen/fab_margin"-->
+                <!--android:text="jonh.doe@envato.com"-->
+                <!--android:textColor="#9f9f9f"-->
+                <!--android:textSize="20sp"/>-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/fab_margin">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/DETAILS_city_label"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="City:"-->
+                <!--android:textColor="#000"-->
+                <!--android:textSize="20sp"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/DETAILS_city"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/DETAILS_city_label"-->
+                <!--android:layout_marginLeft="@dimen/fab_margin"-->
+                <!--android:text="Rome"-->
+                <!--android:textColor="#9f9f9f"-->
+                <!--android:textSize="20sp"/>-->
+
+        <!--</RelativeLayout>-->
+
+    <!--</LinearLayout>-->
+
+<!--</LinearLayout>-->

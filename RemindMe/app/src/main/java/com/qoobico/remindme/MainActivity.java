@@ -3,7 +3,6 @@ package com.qoobico.remindme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
@@ -13,16 +12,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.qoobico.remindme.adapter.TabsFragmentAdapter;
 import com.qoobico.remindme.fragment.Contact;
 import com.qoobico.remindme.fragment.DataManager;
-
-import java.util.ArrayList;
 
 /**
  * Created by oleksandr.pachkovsky on 22.12.2015.
@@ -105,7 +100,7 @@ public class MainActivity extends AppCompatActivity{
                 drawerLayout.closeDrawers();
                 switch (menuItem.getItemId()) {
                     case R.id.actionNotificationItem:
-                        showNotificationTab();
+                        //showNotificationTab();
                 }
                 return true;
             }
@@ -124,10 +119,10 @@ public class MainActivity extends AppCompatActivity{
     }
     */
 
-    private void showNotificationTab(){
-        //call notification activity
-        //viewPager.setCurrentItem(Constants.TAB_TWO);
-    }
+//    private void showNotificationTab(){
+//        //call notification activity
+//        viewPager.setCurrentItem(Constants.TAB_TWO);
+//    }
 
 
 

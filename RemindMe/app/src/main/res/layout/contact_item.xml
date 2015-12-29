@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="Jonh Doe"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/CONTACT_phone"
@@ -41,7 +41,7 @@
             android:text="+01 123456789"
             android:transitionName="@string/transition_name_phone"
             android:textColor="#9f9f9f"
-            android:textSize="15sp"/>
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
