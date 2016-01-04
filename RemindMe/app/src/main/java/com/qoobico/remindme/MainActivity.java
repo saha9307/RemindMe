@@ -16,6 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.qoobico.remindme.authorization.AccountGeneral;
+import com.qoobico.remindme.authorization.AuthorizationActivity;
 import com.qoobico.remindme.fragment.Contact;
 import com.qoobico.remindme.fragment.DataManager;
 
@@ -34,11 +36,25 @@ public class MainActivity extends AppCompatActivity{
 
     private RecyclerView rv;
 
+
+    AccountGeneral accountGeneral;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
         setContentView(MAIN_LAYOUT);
+
+        boolean accountCreated = false;
+        accountGeneral = new AccountGeneral();
+        accountCreated =  accountGeneral.StateAccountCreated(this);
+
+        if(!accountCreated)
+        {
+            Intent intent = new Intent(MainActivity.this, AuthorizationActivity.class);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
+            ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
+        }
 
         rv = (RecyclerView) findViewById(R.id.rv); // layout reference
 

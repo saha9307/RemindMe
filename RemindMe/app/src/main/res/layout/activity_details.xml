@@ -116,7 +116,15 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/fab_margin">
+                    android:layout_marginTop="@dimen/fab_margin"><TextView
+                    android:id="@+id/DETAILS_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/DETAILS_email_label"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:text="jonh.doe@envato.com"
+                    android:textColor="#9f9f9f"
+                    android:textSize="17sp"/>
 
                     <TextView
                         android:id="@+id/DETAILS_email_label"
@@ -124,16 +132,6 @@
                         android:layout_height="wrap_content"
                         android:text="Email:"
                         android:textColor="#000"
-                        android:textSize="17sp"/>
-
-                    <TextView
-                        android:id="@+id/DETAILS_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/DETAILS_email_label"
-                        android:layout_marginLeft="@dimen/fab_margin"
-                        android:text="jonh.doe@envato.com"
-                        android:textColor="#9f9f9f"
                         android:textSize="17sp"/>
 
                 </RelativeLayout>
@@ -185,8 +183,6 @@
         android:layout_gravity="start"
         app:menu="@menu/menu_navigation"
         app:headerLayout="@layout/navigation_header"/>
-
-
 </android.support.v4.widget.DrawerLayout>
 
 

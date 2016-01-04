@@ -19,4 +19,8 @@
 
     <string name="title_activity_details">Contact Details</string>
 
+    <string name="action_sign_in">SIGN IN MODERN-EXPO</string>
+    <string name="name_company">Modern-Expo Group</string>
+    <string name="sting_email">Your work email</string>
+
 </resources>
