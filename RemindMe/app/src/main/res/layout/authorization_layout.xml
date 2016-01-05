@@ -62,15 +62,21 @@
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp">
 
-                <Button
-                    android:id="@+id/sing_in_button"
+                <com.andexert.library.RippleView
+                    android:id="@+id/more"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/action_sign_in"
-                    android:textColor="@color/colorWhite"
-                    android:focusable="false"
-                    android:background="@color/colorButtonSignIn"/>
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/rippleViewSignIn"
+                    rv_centered="true">
 
+                    <Button
+                        android:id="@+id/sing_in_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_sign_in"
+                        android:textColor="@color/colorWhite"
+                        android:background="@color/colorButtonSignIn"/>
+                </com.andexert.library.RippleView>
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
         </LinearLayout>

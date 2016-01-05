@@ -1,5 +1,8 @@
 package com.qoobico.remindme;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,7 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.qoobico.remindme.authorization.AccountGeneral;
+import com.qoobico.remindme.authorization.AccountAuthenticator;
 import com.qoobico.remindme.authorization.AuthorizationActivity;
 import com.qoobico.remindme.fragment.Contact;
 import com.qoobico.remindme.fragment.DataManager;
@@ -33,28 +36,18 @@ public class MainActivity extends AppCompatActivity{
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
 
+    private AccountManager mAccountManager;
 
     private RecyclerView rv;
-
-
-    AccountGeneral accountGeneral;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
-        setContentView(MAIN_LAYOUT);
 
-        boolean accountCreated = false;
-        accountGeneral = new AccountGeneral();
-        accountCreated =  accountGeneral.StateAccountCreated(this);
+        ContentResolver resolver = getContentResolver();
 
-        if(!accountCreated)
-        {
-            Intent intent = new Intent(MainActivity.this, AuthorizationActivity.class);
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
-            ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
-        }
+        VerificationAccount();
 
         rv = (RecyclerView) findViewById(R.id.rv); // layout reference
 
@@ -88,6 +81,8 @@ public class MainActivity extends AppCompatActivity{
         initToolbar();
         initNavigationView();
         //initTabs();
+
+        setContentView(MAIN_LAYOUT);
     }
 
     public void initToolbar(){
@@ -121,6 +116,17 @@ public class MainActivity extends AppCompatActivity{
                 return true;
             }
         });
+    }
+
+    private void VerificationAccount(){
+        mAccountManager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
+        Account[] accounts = mAccountManager.getAccountsByType(AccountAuthenticator.ACCOUNT_TYPE);
+        if (accounts.length == 0)
+        {
+            Intent intent = new Intent(this, AuthorizationActivity.class);
+            intent.putExtra(AuthorizationActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+            startActivity(intent);
+        }
     }
 
    /*
