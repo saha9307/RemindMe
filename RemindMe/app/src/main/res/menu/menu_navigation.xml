@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/actionNotificationItem"
-        android:title="@string/menu_item_notification"
+    <item android:id="@+id/actionTaskItem"
+        android:title="@string/menu_item_task"
         android:orderInCategory="1"
-        android:icon="@mipmap/ic_message_text"/>
+        android:icon="@mipmap/ic_content_paste"/>
+
+    <item android:id="@+id/actionNotificationItem"
+        android:title="@string/menu_item_information"
+        android:orderInCategory="2"
+        android:icon="@mipmap/ic_information_outline"/>
 
 </menu>

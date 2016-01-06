@@ -2,6 +2,8 @@ package com.qoobico.remindme;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity{
     private ViewPager viewPager;
 
     private AccountManager mAccountManager;
+    private Account mAccount;
+    public static String token = "";
 
     private RecyclerView rv;
 
@@ -44,7 +48,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
-
+        setContentView(MAIN_LAYOUT);
         ContentResolver resolver = getContentResolver();
 
         VerificationAccount();
@@ -57,7 +61,8 @@ public class MainActivity extends AppCompatActivity{
         rv.setAdapter(new DataManager()); // the data manager is assigner to the RV
         rv.addOnItemTouchListener( // and the click is handled
                 new RecyclerClickListener(this, new RecyclerClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
+                    @Override
+                    public void onItemClick(View view, int position) {
                         Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                         intent.putExtra(DetailsActivity.ID, Contact.CONTACTS[position].getId());
 
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity{
         initNavigationView();
         //initTabs();
 
-        setContentView(MAIN_LAYOUT);
+
     }
 
     public void initToolbar(){
@@ -127,6 +132,12 @@ public class MainActivity extends AppCompatActivity{
             intent.putExtra(AuthorizationActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
             startActivity(intent);
         }
+        else
+        {
+            mAccount = accounts[0];
+            mAccountManager.getAuthToken(mAccount, AccountAuthenticator.ACCOUNT_TYPE, null, this,
+                    mGetAuthTokenCallback, null);
+        }
     }
 
    /*
@@ -148,6 +159,16 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-
+    private AccountManagerCallback<Bundle> mGetAuthTokenCallback =
+            new AccountManagerCallback<Bundle>() {
+                @Override
+                public void run(final AccountManagerFuture<Bundle> arg0) {
+                    try {
+                        token = (String) arg0.getResult().get(AccountManager.KEY_AUTHTOKEN);
+                    } catch (Exception e) {
+                        // handle error
+                    }
+                }
+            };
 
 }

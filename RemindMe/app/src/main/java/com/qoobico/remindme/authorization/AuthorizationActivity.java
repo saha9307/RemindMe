@@ -9,9 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.qoobico.remindme.R;
-
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -28,6 +26,7 @@ public class AuthorizationActivity extends AccountAuthenticatorActivity {
     public static final String ARG_IS_ADDING_NEW_ACCOUNT = "3";
     public static final String PARAM_USER_PASS = "4";
     private AccountManager mAccountManager;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +40,8 @@ public class AuthorizationActivity extends AccountAuthenticatorActivity {
             @Override
             public void onClick(View v) {
                 EditText editTextEmail = (EditText) findViewById(R.id.text_email);
-                String text_email = editTextEmail.getText().toString();
-                if (text_email.length() == 0 || !VerificationAEmail(text_email))
+                email = editTextEmail.getText().toString();
+                if (email.length() == 0 || !VerificationAEmail(email))
                     return;
 
                 CreateNewAccount();
@@ -63,22 +62,15 @@ public class AuthorizationActivity extends AccountAuthenticatorActivity {
     }
 
     private void CreateNewAccount() {
-        // Se obtiene el usuario y contrasena ingresados
-        final String userName = "Oleksandr";
-        final String userPass = "123456789";
 
-        // Se loguea de forma asincronica para no entorpecer el UI thread
         new AsyncTask<Void, Void, Intent>() {
             @Override
             protected Intent doInBackground(Void... params) {
-                // Se loguea en el servidor y retorna token
-                String authtoken = logIn(userName, userPass);
-                // Informacion necesaria para enviar al authenticator
                 final Intent res = new Intent();
-                res.putExtra(AccountManager.KEY_ACCOUNT_NAME, userName);
+                res.putExtra(AccountManager.KEY_ACCOUNT_NAME, email);
                 res.putExtra(AccountManager.KEY_ACCOUNT_TYPE, AccountAuthenticator.ACCOUNT_TYPE);
-                res.putExtra(AccountManager.KEY_AUTHTOKEN, authtoken);
-                res.putExtra(PARAM_USER_PASS, userPass);
+                res.putExtra(AccountManager.KEY_AUTHTOKEN, email);
+                res.putExtra(PARAM_USER_PASS, email);
                 return res;
             }
             @Override
@@ -88,10 +80,6 @@ public class AuthorizationActivity extends AccountAuthenticatorActivity {
         }.execute();
     }
 
-    private String logIn(String user, String pass){
-        // Método para fines demostrativos :)
-        return "tokentokentokentoken1234";
-    }
 
     private void finishLogin(Intent intent) {
         String accountName = intent.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
@@ -99,29 +87,18 @@ public class AuthorizationActivity extends AccountAuthenticatorActivity {
         final Account account = new Account(accountName,
                 intent.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE));
 
-        // Si es que se esta anadiendo una nueva cuenta
         if (getIntent().getBooleanExtra(ARG_IS_ADDING_NEW_ACCOUNT, false)) {
 
             String authtoken = intent.getStringExtra(AccountManager.KEY_AUTHTOKEN);
             String authtokenType = AccountAuthenticator.AUTHTOKEN_TYPE;
-            // Creando cuenta en el dispositivo y seteando el token que obtuvimos.
-            Boolean st = mAccountManager.addAccountExplicitly(account, accountPassword, null);
-
-            // Ojo: hay que setear el token explicitamente si la cuenta no existe,
-            // no basta con mandarlo al authenticator
+            mAccountManager.addAccountExplicitly(account, accountPassword, null);
             mAccountManager.setAuthToken(account, authtokenType, authtoken);
         }
-        // Si no se está añadiendo cuenta, el token estaba antiguo invalidado.
-        // Seteamos contraseña nueva por si la cambio.
         else {
-            // Solo seteamos contraseña.  Aca no es necesario setear el token explicitamente,
-            // basta con enviarlo al Authenticator
             mAccountManager.setPassword(account, accountPassword);
         }
-        // Setea el resultado para que lo reciba el Authenticator
         setAccountAuthenticatorResult(intent.getExtras());
         setResult(RESULT_OK, intent);
-        // Cerramos la actividad
         finish();
     }
 }
