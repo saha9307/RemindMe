@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.modernexpo.remindme.R;
+import com.modernexpo.task.rippledrawable.RippleDrawable;
+
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -33,6 +36,10 @@ public class AuthorizationActivity extends AccountAuthenticatorActivity {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
         setContentView(MAIN_LAYOUT);
+
+        Button button = (Button) findViewById(R.id.sing_in_button);
+        RippleDrawable rippleDrawable = new RippleDrawable();
+        rippleDrawable.attachToView(button);
 
         mAccountManager = AccountManager.get(this);
         Button buttonSignIn = (Button) findViewById(R.id.sing_in_button);
