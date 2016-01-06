@@ -1,4 +1,4 @@
-package com.qoobico.remindme.fragment;
+package com.modernexpo.task.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.qoobico.remindme.R;
+import com.modernexpo.remindme.R;
 
 /**
  * Created by oleksandr.pachkovsky on 25.12.2015.

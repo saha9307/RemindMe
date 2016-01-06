@@ -1,13 +1,11 @@
-package com.qoobico.remindme.fragment;
+package com.modernexpo.task.fragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.qoobico.remindme.R;
-
-import java.util.ArrayList;
+import com.modernexpo.remindme.R;
 
 
 /**

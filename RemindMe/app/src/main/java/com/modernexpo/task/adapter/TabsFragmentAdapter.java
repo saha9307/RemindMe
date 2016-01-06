@@ -1,4 +1,4 @@
-package com.qoobico.remindme.adapter;
+package com.modernexpo.task.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -6,11 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.widget.RecyclerView;
 
-import com.qoobico.remindme.fragment.AbstractTabFragment;
-import com.qoobico.remindme.fragment.BirthdaysFragment;
-import com.qoobico.remindme.fragment.HistoryFragment;
-import com.qoobico.remindme.fragment.IdeasFragment;
-import com.qoobico.remindme.fragment.TodoFragment;
+import com.modernexpo.task.fragment.AbstractTabFragment;
+import com.modernexpo.task.fragment.BirthdaysFragment;
+import com.modernexpo.task.fragment.HistoryFragment;
+import com.modernexpo.task.fragment.IdeasFragment;
+import com.modernexpo.task.fragment.TodoFragment;
 
 import java.util.HashMap;
 import java.util.Map;

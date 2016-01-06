@@ -1,4 +1,4 @@
-package com.qoobico.remindme.authorization;
+package com.modernexpo.task.authorization;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.qoobico.remindme.R;
+import com.modernexpo.remindme.R;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 

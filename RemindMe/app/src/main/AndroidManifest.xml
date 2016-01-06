@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qoobico.remindme">
+    package="com.modernexpo.remindme">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-       <activity android:name=".MainActivity">
+       <activity android:name="com.modernexpo.task.MainActivity">
            <intent-filter>
                <action android:name="android.intent.action.MAIN"/>
                <category android:name="android.intent.category.LAUNCHER"/>
@@ -24,24 +24,24 @@
        </activity>
 
         <activity
-            android:name=".DetailsActivity"
+            android:name="com.modernexpo.task.DetailsActivity"
             android:label="@string/title_activity_details"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.modernexpo.task.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.qoobico.remindme.MainActivity" />
+                android:value="com.modernexpo.task.MainActivity" />
         </activity>
 
         <activity
-            android:name=".authorization.AuthorizationActivity"
-            android:parentActivityName=".MainActivity" >
+            android:name="com.modernexpo.task.authorization.AuthorizationActivity"
+            android:parentActivityName="com.modernexpo.task.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.qoobico.remindme.MainActivity" />
+                android:value="com.modernexpo.task.MainActivity" />
         </activity>
 
         <service
-            android:name=".Services.AuthenticatorService">
+            android:name="com.modernexpo.task.Services.AuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -49,7 +49,7 @@
                 android:resource="@xml/authenticator" />
         </service>
         <service
-            android:name=".Services.SyncService"
+            android:name="com.modernexpo.task.Services.SyncService"
             android:exported="true"
             android:process=":sync">
             <intent-filter>

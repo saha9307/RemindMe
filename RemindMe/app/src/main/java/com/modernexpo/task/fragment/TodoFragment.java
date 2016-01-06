@@ -1,28 +1,27 @@
-package com.qoobico.remindme.fragment;
+package com.modernexpo.task.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.qoobico.remindme.R;
+import com.modernexpo.remindme.R;
 
 /**
  * Created by oleksandr.pachkovsky on 25.12.2015.
  */
-public class IdeasFragment extends AbstractTabFragment{
+public class TodoFragment extends AbstractTabFragment{
 
-    public static IdeasFragment getInstance(Context context, RecyclerView mRecycler){
+    public static TodoFragment getInstance(Context context, RecyclerView mRecycler){
         Bundle args = new Bundle();
-        IdeasFragment fragment = new IdeasFragment();
+        TodoFragment fragment = new TodoFragment();
         fragment.setArguments(args);
         fragment.setContext(context);
         fragment.setRecyclerView(mRecycler);
-        fragment.setTitle(context.getString(R.string.tab_item_ideas));
+        fragment.setTitle(context.getString(R.string.tab_item_todo));
         fragment.viewmRecycler();
         return fragment;
     }

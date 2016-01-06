@@ -1,4 +1,4 @@
-package com.qoobico.remindme.fragment;
+package com.modernexpo.task.fragment;
 
 public class Contact {
 

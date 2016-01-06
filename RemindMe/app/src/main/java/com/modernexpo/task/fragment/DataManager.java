@@ -1,7 +1,5 @@
-package com.qoobico.remindme.fragment;
+package com.modernexpo.task.fragment;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.qoobico.remindme.R;
+import com.modernexpo.remindme.R;
 
 public class DataManager extends RecyclerView.Adapter<DataManager.RecyclerViewHolder> {
 

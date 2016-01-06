@@ -1,4 +1,4 @@
-package com.qoobico.remindme;
+package com.modernexpo.task;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -21,10 +21,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.qoobico.remindme.authorization.AccountAuthenticator;
-import com.qoobico.remindme.authorization.AuthorizationActivity;
-import com.qoobico.remindme.fragment.Contact;
-import com.qoobico.remindme.fragment.DataManager;
+import com.modernexpo.remindme.R;
+import com.modernexpo.task.authorization.AccountAuthenticator;
+import com.modernexpo.task.authorization.AuthorizationActivity;
+import com.modernexpo.task.fragment.Contact;
+import com.modernexpo.task.fragment.DataManager;
 
 /**
  * Created by oleksandr.pachkovsky on 22.12.2015.

@@ -1,4 +1,4 @@
-package com.qoobico.remindme.authorization;
+package com.modernexpo.task.authorization;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;

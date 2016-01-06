@@ -1,4 +1,4 @@
-package com.qoobico.remindme.Services;
+package com.modernexpo.task.Services;
 
 import android.app.Service;
 import android.content.Intent;

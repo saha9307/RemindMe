@@ -1,20 +1,19 @@
-package com.qoobico.remindme;
+package com.modernexpo.task;
 
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.qoobico.remindme.fragment.Contact;
+import com.modernexpo.remindme.R;
+import com.modernexpo.task.fragment.Contact;
 
 
 public class DetailsActivity extends Activity {

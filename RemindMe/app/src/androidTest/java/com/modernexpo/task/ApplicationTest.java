@@ -1,4 +1,4 @@
-package com.qoobico.remindme;
+package com.modernexpo.task;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
